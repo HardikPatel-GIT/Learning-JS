@@ -1,93 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Cricket Game</title>
     <style>
-      body {
-        text-align: center;
-      }
+        body {
+            text-align: center;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <h1>Bat Ball Stump Game</h1>
 
-    <button
-      onclick="
-        //Generate random number between o and 3
-        let randomNumber = Math.random() * 3;
-        let computerChoice;
-                
-        if (randomNumber > 0 && randomNumber <= 1){
-            computerChoice = 'Bat';
-        }else if (randomNumber > 1 && randomNumber <=2){
-            computerChoice = 'Ball';
-        }else{
-            computerChoice = 'Stump';
-        }
-        
-        let resultMsg;
+    <button onclick="
+        let computerChoice = generatecomputerMove();
+        let resultMsg = getResult('Bat', computerChoice);
+        showResult('Bat',computerChoice, resultMsg);
+    ">Bat</button>
 
-        if (computerChoice === 'Ball'){
-            resultMsg = 'User Won.';
-        }else if(computerChoice === 'Bat'){
-            resultMsg = 'It is a tie';
-        }else if(computerChoice === 'Stump'){
-            resultMsg = 'Computer has won';
-        }
-
-        alert(`You have chosen Bat.  Computer choice is ${computerChoice} and ${resultMsg}`)
-
-        "
-    >
-      Bat
-    </button>
-
-    <button
-      onclick="
-
-        randomNumber = Math.random() * 3;
-                
-        if (randomNumber > 0 && randomNumber <= 1){
-            computerChoice = 'Bat';
-        }else if (randomNumber > 1 && randomNumber <=2){
-            computerChoice = 'Ball';
-        }else{
-            computerChoice = 'Stump';
-        }
-        
-        if (computerChoice === 'Stump'){
-            resultMsg = 'User Won.';
-        }else if(computerChoice === 'Ball'){
-            resultMsg = 'It is a tie';
-        }else if(computerChoice === 'Bat'){
-            resultMsg = 'Computer has won';
-        }
-
-    alert(`You have chosen Ball.  Computer choice is ${computerChoice} and ${resultMsg}`)
+    <button onclick="
+        computerChoice = generatecomputerMove();
+        resultMsg = getResult('Ball', computerChoice);
+        showResult('Ball', computerChoice, resultMsg);
     ">Ball</button>
 
     <button onclick="
+        computerChoice = generatecomputerMove();
+        resultMsg = getResult('Stump', computerChoice);
+        showResult('Stump', computerChoice, resultMsg);
+    ">Stump</button>
 
-    randomNumber = Math.random() * 3;
+    <script>
+
+        function generatecomputerMove() {
+            //Generate random number between 0 and 3
+            let randomNumber = Math.random() * 3;
+
+            if (randomNumber <= 1) {
+                return 'Bat';
+            } else if (randomNumber <= 2) {
+                return 'Ball';
+            } else {
+                return 'Stump';
+            }
+        }
+
+        function getResult(userMove, computerMove){
+            if (userMove === 'Bat'){
+                if (computerMove === 'Ball'){
+                    return 'User Won.';
+                }else if(computerMove === 'Bat'){
+                    return 'It is a tie';
+                }else if(computerMove === 'Stump'){
+                    return 'Computer has won';
+                }
+            }
+            else if (userMove ==="Ball"){
+                if (computerMove === 'Stump'){
+                    return 'User Won.';
+                }else if(computerMove === 'Ball'){
+                    return 'It is a tie';
+                }else if(computerMove === 'Bat'){
+                    return 'Computer has won';
+                }
+            }
+            else{
+                if (computerMove === 'Bat'){
+                    return 'User Won.';
+                }else if(computerMove === 'Stump'){
+                    return 'It is a tie';
+                }else if(computerMove === 'Ball'){
+                    return 'Computer has won';
+            }
+
+            }
+
+        }
+        function showResult(userMove, computerMove, resultMsg){
+            alert(`You have chosen ${userMove}.  Computer choice is ${computerMove} and ${resultMsg}`)
             
-    if (randomNumber > 0 && randomNumber <= 1){
-        computerChoice = 'Bat';
-    }else if (randomNumber > 1 && randomNumber <=2){
-        computerChoice = 'Ball';
-    }else{
-        computerChoice = 'Stump';
-    }
-    
-    if (computerChoice === 'Bat'){
-        resultMsg = 'User Won.';
-    }else if(computerChoice === 'Stump'){
-        resultMsg = 'It is a tie';
-    }else if(computerChoice === 'Ball'){
-        resultMsg = 'Computer has won';
-    }
+        }
 
-alert(`You have chosen Stump.  Computer choice is ${computerChoice} and ${resultMsg}`)
-">Stump</button>
-  </body>
+    </script>
+
+</body>
+
 </html>
