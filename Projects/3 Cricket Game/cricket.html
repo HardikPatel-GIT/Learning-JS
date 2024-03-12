@@ -33,6 +33,13 @@
 
     <script>
 
+        let score = {
+            win : 0,
+            lost : 0,
+            tie : 0,
+        };
+
+
         function generatecomputerMove() {
             //Generate random number between 0 and 3
             let randomNumber = Math.random() * 3;
@@ -49,28 +56,37 @@
         function getResult(userMove, computerMove){
             if (userMove === 'Bat'){
                 if (computerMove === 'Ball'){
+                    score.win = score.win + 1;
                     return 'User Won.';
                 }else if(computerMove === 'Bat'){
+                    score.tie = score.tie + 1;
                     return 'It is a tie';
                 }else if(computerMove === 'Stump'){
+                    score.lost = score.lost + 1;
                     return 'Computer has won';
                 }
             }
             else if (userMove ==="Ball"){
                 if (computerMove === 'Stump'){
+                    score.win += 1;
                     return 'User Won.';
                 }else if(computerMove === 'Ball'){
+                    score.tie += 1;
                     return 'It is a tie';
                 }else if(computerMove === 'Bat'){
+                    score.lost += 1;
                     return 'Computer has won';
                 }
             }
             else{
                 if (computerMove === 'Bat'){
+                    score.win++;
                     return 'User Won.';
                 }else if(computerMove === 'Stump'){
+                    score.tie++;
                     return 'It is a tie';
                 }else if(computerMove === 'Ball'){
+                    score.lost++;
                     return 'Computer has won';
             }
 
@@ -78,7 +94,12 @@
 
         }
         function showResult(userMove, computerMove, resultMsg){
-            alert(`You have chosen ${userMove}.  Computer choice is ${computerMove} and ${resultMsg}`)
+            console.log(score);
+            alert(`You have chosen ${userMove}.  Computer choice is ${computerMove}
+            
+            ${resultMsg}
+            
+            Won: ${score.win} , Lost: ${score.lost} , Tie: ${score.tie}`)
             
         }
 
