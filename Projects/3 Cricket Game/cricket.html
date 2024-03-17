@@ -33,7 +33,12 @@
     
     <button onclick="localStorage.clear()
     resetScore()">Reset</button>
-
+    
+    <h3 id="user-move"></h3>
+    <h3 id="computer-move"></h3>
+    <h3 id="result"></h3>
+    <h3 id="score"></h3>
+    
     <script>
         let scoreStr = localStorage.getItem('Score');
         let score;
@@ -46,7 +51,8 @@
             lost : 0,
             tie : 0,        
             };
-        }
+        
+        // This following code explains previous few lines    
         // if (scoreStr !== undefined){
         //     score = JSON.parse(scoreStr);
         //     }
@@ -58,10 +64,11 @@
         //     };
         // }
 
-        score.displayScore = function(){
-                return `No of matches Won: ${score.win} , Lost: ${score.lost} , Tie: ${score.tie}`
+            score.displayScore = function(){
+                return `Score: Won: ${score.win} , Lost: ${score.lost} , Tie: ${score.tie}`
             };
-
+            showResult();
+        }
         function generatecomputerMove() {
             //Generate random number between 0 and 3
             let randomNumber = Math.random() * 3;
@@ -115,16 +122,22 @@
             }
 
         }
-        function showResult(userMove, computerMove, resultMsg){
+        
+        function showResult(userMove, computerMove, result){
             localStorage.setItem('Score', JSON.stringify(score));
+            
+            document.querySelector('#user-move').innerText = 
+                userMove ? `You have Chosen ${userMove}` : '';
 
-            alert(`
-            You have chosen ${userMove}.  Computer choice is ${computerMove}
+            document.querySelector('#computer-move').innerText =
+                computerMove ? `Computer choice is ${computerMove}` : '';
             
-            ${resultMsg}
+            document.querySelector('#result').innerText =  
+                result || '';
+
+            document.querySelector('#score').innerText = score.displayScore();
+
             
-            ${score.displayScore()}
-            `);
             
         }
 
