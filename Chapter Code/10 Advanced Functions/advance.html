@@ -4,7 +4,88 @@
     <title>Advanced Functions</title>
   </head>
   <body>
+    <button id="my-button">Click Me</button>
+    
     <script>
+      let arr = [1,2,3,4,5,6,7,8,9];
+
+      let square = arr.map(num => num * num);
+
+      console.log(square);
+
+
+
+      // let Odds = arr.filter((num, index) => {
+      //   if (num % 2 === 1) return true;
+      //   else return false;
+      // })
+
+      // let Evens = arr.filter((num, index) => {
+      //   if (num % 2 == 1) return false;
+      //   else return true;
+      // })
+      
+      // let newOdds = arr.filter((num, index) => num % 2 ===1);
+
+      // console.log(Odds);
+      // console.log(Evens);
+      // console.log(newOdds);
+      
+
+
+
+      // // this loop is not effective in breaking
+      // arr.forEach(num => {
+      //   if (num ===  5){
+      //     return;
+      //   }
+      //   console.log(`Visited ${num}`);
+
+      // })
+
+
+
+      // arr.forEach(function(number)
+      // {
+      //   console.log(number);
+      // });
+
+      //  arr.forEach(num => console.log(num));
+      
+      // function search (arr, num){
+      //   for (let i = 0; i < arr.length; i++){
+      //     if (arr[i] === num){
+      //       console.log(`element found at ${i}`);
+      //       return;
+      //     }
+      //     console.log(`Visited ${arr[i]}`);
+      //   }
+      //   console.log(`Element not found`);
+      // }
+
+      //search (arr, 5);
+
+      
+
+
+
+
+
+
+
+
+      // let buttonElement = document.querySelector('#my-button');
+      // let buttonBehavior = event => console.log('I am clicked');
+
+      // buttonElement.addEventListener('click', buttonBehavior );
+
+      // let printDate = event => console.log(new Date());
+
+      // buttonElement.addEventListener('click', printDate)
+
+      // buttonElement.removeEventListener('click', buttonBehavior);
+
+
       // let sum = function (num1, num2) {
       //   return num1 + num2;
       // };
@@ -31,12 +112,16 @@
 
       // console.log(square(5));
 
-      let alarm = 
+      //let alarm = () => console.log(`subaha ho gayi, ${new Date()}`) ;
+      // let timerID = setTimeout(alarm, 10000);
+      // console.log(`alarm set with timerID : ${timerID}`);
+      // clearTimeout(timerID);
 
-      setTimeout(
-        () => console.log("subaha ho gayi"), 1000);
+      // let intervalID = setInterval(alarm, 1000);
+      
+      // setTimeout(() => clearInterval(intervalID), 5000);
+      
 
-      console.log("alarm set");
     </script>
   </body>
 </html>
