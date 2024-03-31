@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exercise</title>
+    <style>
+        #original{
+            height: 40px;
+            width: 200px;
+        }
+        #doubleSize{
+            height: 80px;
+            width: 400px;
+        }
+        .btn-sub{
+            font-size: 15px;
+            height: 20px;
+            width: 80px;
+            background-color: rgb(193, 37, 37);
+            color:  white;
+            border: none;
+            border-radius: 4px;
+        }
+        .js-size-double{
+            font-size: 30px;
+            height: 40px;
+            width: 160px;
+        }
+    </style>
+</head>
+<body>
+    <button id="original">Click me to double me</button>
+    <button class="btn-sub">Subscribe</button>
+    <script>
+        // my code
+
+        // let arr = [2,4,6,8];
+        // let squares =  arr.map(num => num*num);
+        // console.log(squares);
+
+        // let sum = 0; 
+        // arr.forEach((num) => sum += num);
+        // console.log(sum);
+
+        // let buttonElement = document.querySelector('#original');
+        // let doubleUp = event => buttonElement.id = "doubleSize"; 
+        // buttonElement.addEventListener('click', () => setTimeout(doubleUp,2000));
+        
+        // let multiply = function (num1, num2){
+        //     return num1*num2;
+        // }
+        // let multiplyNew = multiply;
+        // console.log(multiply(2,5));
+        // console.log(multiplyNew(3,5));
+        // let multiplyThree = function(num1, num2, num3, fn){
+        //   return fn(num1,(fn(num2, num3 )));
+        // }
+        // console.log(multiplyThree(2,3,4,multiply));
+        
+        console.log('follow');
+
+        // follow with Prashant sir
+        //task 1
+        let multiply = (num1, num2) => num1*num2;
+        console.log((multiply(4,5)));
+        //task 2
+        let printGreeting = () => console.log('Namaste');
+        let runTwice = inputFunction => {
+            inputFunction();
+            inputFunction();
+        };        
+        runTwice(printGreeting);
+        //task 3
+        function doubleTheSize(){
+            let buttonElement = document.querySelector('.btn-sub');
+            buttonElement.classList.add('js-size-double')
+        }
+        // task 4
+        let buttonElement = document.querySelector('.btn-sub');
+        buttonElement.addEventListener('click', event => setTimeout(doubleTheSize, 2000));
+        //task 5
+        let arr = [1,2,3,4,5,6,7];
+        let sum = 0;
+        arr.forEach(num => sum += num);
+        console.log(sum)
+        //task 6
+        let squares = arr.map(num => num*num);
+        console.log(squares);
+    </script>
+</body>
+</html>
